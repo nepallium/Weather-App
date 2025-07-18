@@ -1,21 +1,27 @@
 import weatherState from "./weatherState"
 
-const data = weatherState.data
 
 class UI {
     displayInfo() {
-        displayWeatherCard()
+        const data = weatherState.data
+        console.log(data)
+        displayWeatherCard(data)
     }
 }
 
-function displayWeatherCard() {
+function displayWeatherCard(data) {
     const weatherCard = document.querySelector("section.main-info-card")
 
     const location = weatherCard.querySelector("p.location")
-    location.value = data.resolvedAddress
+    location.textContent = data.resolvedAddress
 
     const date = weatherCard.querySelector("time.date")
-    date.datetime = data.datetime
+    date.datetime = data.todayData.datetime
+    date.textContent = date.datetime
+
+    const time = weatherCard.querySelector("time.time")
+    time.datetime = new Date(data.todayData.datetimeEpoch * 1000)
+    time.textContent = time.datetime
 }
 
 const uiStuff = new UI()
