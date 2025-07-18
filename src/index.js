@@ -1,4 +1,7 @@
 import { getWeather } from "./modules/api";
 import { getTodayWeather } from "./modules/api";
+import { listenForSearch } from "./modules/listeners";
 
-getTodayWeather("montreal").then(response => console.log(response))
+// getTodayWeather("montreal").then(response => console.log(response))
+
+listenForSearch()
