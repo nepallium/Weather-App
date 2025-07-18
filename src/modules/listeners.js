@@ -1,4 +1,6 @@
 import { getTodayWeather } from "./api"
+import uiStuff from "./ui"
+import weatherState from "./weatherState"
 
 
 export function listenForSearch() {
@@ -7,7 +9,9 @@ export function listenForSearch() {
         e.preventDefault()
 
         const query = form.querySelector("#search").value
-        getTodayWeather(query).then(res => console.log(res))
+        getTodayWeather(query).then(data => weatherState.data = data)
+
+        uiStuff.displayInfo()
     })
 
     form.reset()

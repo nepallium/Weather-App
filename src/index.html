@@ -6,11 +6,74 @@
     <title>Weather App</title>
 </head>
 <body>
-    <form class="search">
-        <label class="search">
-            <span></span>
-            <input id="search" name="search" placeholder="Search location">
-        </label>
-    </form>
+    <header>
+        <span></span>
+        <h1>Weather App</h1>
+    </header>
+
+    <main>
+        <form class="search">
+            <label class="search">
+                <span></span>
+                <input id="search" name="search" placeholder="Search location">
+            </label>
+        </form>
+
+        <section class="main-info-card">
+            <div class="top">
+                <p class="location"></p>
+                <time class="time"></time>
+                <time class="date"></time>
+            </div>
+            <div class="bottom">
+                <p class="current-weather"></p>
+                <div>
+                    <p class="min-max-temp"></p>
+                    <p class="conditions"></p>
+                </div>
+                <p class="description"></p>
+            </div>
+        </section>
+
+        <section class="extra-weather-info">
+            <ul>
+                <li class="info">
+                    <div>
+                        <span></span>
+                        <p class="list-info">Feels Like</p>
+                    </div>
+                    <p class="list-value"></p>
+                </li>
+                <li class="info">
+                    <div>
+                        <span></span>
+                        <p class="list-info">Rain Probability</p>
+                    </div>
+                    <p class="list-value"></p>
+                </li>
+                <li class="info">
+                    <div>
+                        <span></span>
+                        <p class="list-info">Wind Speed</p>
+                    </div>
+                    <p class="list-value"></p>
+                </li>
+                <li class="info">
+                    <div>
+                        <span></span>
+                        <p class="list-info">Air Humidity</p>
+                    </div>
+                    <p class="list-value"></p>
+                </li>
+                <li class="info">
+                    <div>
+                        <span></span>
+                        <p class="list-info">UV Index</p>
+                    </div>
+                    <p class="list-value"></p>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
