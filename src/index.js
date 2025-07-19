@@ -4,4 +4,4 @@ import { listenForSearch } from "./modules/listeners";
 
 // getTodayWeather("montreal").then(response => console.log(response))
 
-listenForSearch()
+listenForSearch();
