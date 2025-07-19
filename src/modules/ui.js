@@ -23,6 +23,7 @@ class UI {
 
 function displayWeatherCard(data) {
   const weatherCard = document.querySelector("section.main-info-card");
+  weatherCard.style.display = "flex";
 
   (function displayTop() {
     const location = weatherCard.querySelector("p.location");
@@ -30,7 +31,7 @@ function displayWeatherCard(data) {
 
     const date = weatherCard.querySelector("time.date");
     date.textContent = format(
-      new Date(data.todayData.datetime),
+      new Date(),
       "eeee, MMMM d, yyyy"
     );
 
@@ -40,47 +41,51 @@ function displayWeatherCard(data) {
 
   (function displayBottom() {
     const currWeather = weatherCard.querySelector("p.current-weather");
-    currWeather.textContent = `${round(data.todayData.temp)}${tempUnit}`;
+    currWeather.textContent = `${round(data.currentConditions.temp)}${tempUnit}`;
 
-    const minMaxWeather = weatherCard.querySelector("p.min-max-temp");
-    minMaxWeather.textContent = `${round(
-      data.todayData.tempmin
-    )}${tempUnit} / ${round(data.todayData.tempmax)}${tempUnit}`;
+    // const minMaxWeather = weatherCard.querySelector("p.min-max-temp");
+    // minMaxWeather.textContent = `${round(
+    //   data.currentConditions.tempmin
+    // )}${tempUnit} / ${round(data.currentConditions.tempmax)}${tempUnit}`;
+
+    const feelsLike = weatherCard.querySelector("p.feels-like")
+    feelsLike.textContent = `Feels like ${round(data.currentConditions.feelslike)}${tempUnit}`
 
     const conditions = weatherCard.querySelector("p.conditions");
-    conditions.textContent = data.todayData.conditions;
+    conditions.textContent = data.currentConditions.conditions;
 
     // description
     const desc = weatherCard.querySelector("p.description");
-    desc.textContent = data.todayData.description;
+    desc.textContent = data.description;
   })();
 }
 
 function displayExtraInfo(data) {
   const extraInfoSection = document.querySelector("section.extra-weather-info");
+  extraInfoSection.style.display = "block"
 
   const feelsLikeValue = extraInfoSection.querySelector(
     "li.feels-like .list-value"
   );
-  feelsLikeValue.textContent = `${round(data.todayData.feelslike)}${tempUnit}`;
+  feelsLikeValue.textContent = `${round(data.currentConditions.feelslike)}${tempUnit}`;
 
   const rainProbValue = extraInfoSection.querySelector(
     "li.rain-prob .list-value"
   );
-  rainProbValue.textContent = `${round(data.todayData.precipprob) ?? 0}%`;
+  rainProbValue.textContent = `${round(data.currentConditions.precipprob) ?? 0}%`;
 
   const windSpeedValue = extraInfoSection.querySelector(
     "li.wind-speed .list-value"
   );
-  windSpeedValue.textContent = `${round(data.todayData.windspeed)} km/h`;
+  windSpeedValue.textContent = `${round(data.currentConditions.windspeed)} km/h`;
 
   const airHumValue = extraInfoSection.querySelector("li.air-hum .list-value");
-  airHumValue.textContent = `${round(data.todayData.humidity)}%`;
+  airHumValue.textContent = `${round(data.currentConditions.humidity)}%`;
 
   const uvIndexValue = extraInfoSection.querySelector(
     "li.uv-index .list-value"
   );
-  uvIndexValue.textContent = round(data.todayData.uvindex);
+  uvIndexValue.textContent = round(data.currentConditions.uvindex);
 }
 
 const uiStuff = new UI();

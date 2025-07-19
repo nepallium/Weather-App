@@ -8,7 +8,6 @@ export function listenForSearch() {
     e.preventDefault();
 
     const query = form.querySelector("#search").value;
-    // getTodayWeather(query).then(data => weatherState.data = data)
     const data = await getTodayWeather(query);
     weatherState.data = data;
     console.log(data);

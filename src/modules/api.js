@@ -25,16 +25,16 @@ export async function getWeather(location) {
 export async function getTodayWeather(location) {
   const weatherData = await getWeather(location);
 
-  const { days, alerts, description, resolvedAddress } = weatherData;
-  const processedDays = days.map((day) => {
-    const { hours, ...dayData } = day;
-    return dayData;
-  });
+  const { alerts, description, resolvedAddress, currentConditions } = weatherData;
+  // const processedDays = days.map((day) => {
+  //   const { hours, ...dayData } = day;
+  //   return dayData;
+  // });
 
   return {
     alerts,
     description,
     resolvedAddress,
-    todayData: { ...processedDays[0] },
+    currentConditions
   };
 }

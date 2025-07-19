@@ -1,0 +1,127 @@
+:root {
+    --gray-900: #131319;
+    --gray-800: #16161f;
+    --gray-700: #1c1c27;
+    --gray-600: #1e1e29;
+    --gray-500: #3b3b54;
+    --gray-400: #7f7f98;
+    --gray-300: #ababc4;
+    --gray-200: #bfbfd4;
+    --gray-100: #fafafa;
+    --blue-light: #8fb2f5;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 1rem; */
+
+    font-family: "Inter", sans-serif;
+
+    background-color: var(--gray-900);
+    color: var(--gray-100);
+}
+
+input#search {
+    padding: 0 20px;
+    color: var(--gray-300);
+    background-color: var(--gray-500);
+    width: 100%;
+    line-height: 3rem;
+    border-style: none;
+    border-radius: 8px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--gray-900);
+
+    > * {
+        background-color: var(--gray-800);
+        border-radius: 8px;
+    }
+}
+
+section.main-info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    padding: 20px;
+
+    background-color: rgb(70, 190, 213);
+
+    div.top {
+        display: grid;
+        grid-template: 1fr 1fr / auto max-content;
+
+        p.location {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        time.time {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        time.date {
+            color: var(--gray-200)
+        }
+    }
+
+    div.bottom {
+        p.current-weather {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.7rem;
+        }
+
+        div {
+            display: flex;
+            font-size: 0.9rem;
+            gap: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        p.description {
+            font-size: 0.8rem;
+            color: var(--gray-200)
+        }
+    }
+}
+
+section.extra-weather-info {
+    width: 100%;
+    /* --spacing: 1r */
+    padding: 0 1rem;
+
+    ul {
+        display: grid;
+        grid-template-rows: repeat(1fr, 5);
+        line-height: 3rem;
+        font-size: 1.1rem;
+        color: var(--gray-200);
+        background-color: var(--gray-400);
+    
+        li.info {
+            display: flex;
+            background-color: var(--gray-800);
+            justify-content: space-between;
+
+            p.list-value {
+                color: var(--gray-100)
+            }
+        }
+
+        li.info + li.info {
+            border-top-color: var(--gray-500);
+            border-top-style: solid;
+            border-top-width: 1px;
+        }
+    }
+}

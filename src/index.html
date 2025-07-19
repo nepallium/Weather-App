@@ -11,6 +11,7 @@
       <h1>Weather App</h1>
     </header>
 
+    <!-- <div class="container"> -->
     <main>
       <form class="search">
         <label class="search">
@@ -19,7 +20,7 @@
         </label>
       </form>
 
-      <section class="main-info-card">
+      <section class="main-info-card" style="display: none">
         <div class="top">
           <p class="location"></p>
           <time class="time"></time>
@@ -28,14 +29,14 @@
         <div class="bottom">
           <p class="current-weather"></p>
           <div>
-            <p class="min-max-temp"></p>
+            <p class="feels-like"></p>
             <p class="conditions"></p>
           </div>
           <p class="description"></p>
         </div>
       </section>
 
-      <section class="extra-weather-info">
+      <section class="extra-weather-info" style="display: none">
         <ul>
           <li class="info feels-like">
             <div>
@@ -75,5 +76,6 @@
         </ul>
       </section>
     </main>
+    <!-- </div> -->
   </body>
 </html>
