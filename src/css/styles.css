@@ -34,6 +34,15 @@ body {
     color: var(--gray-100);
 }
 
+header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    span {
+    }
+}
+
 form {
     position: relative;
     --icon-padding: 8px;
@@ -76,6 +85,20 @@ form {
         cursor: pointer;
     }
 
+
+    .error-msg {
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        text-wrap: nowrap;
+        font-weight: 500;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+
+        color: #FAA0A0;
+    }
 }
 
 div.loader {

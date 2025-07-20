@@ -10,17 +10,23 @@ const searchBtn = form.querySelector("span.search");
 async function querySearch(event) {
     event.preventDefault();
 
+    hideErrorMsg();
     displayLoader();
 
     const query = form.querySelector("#search").value;
-    const data = await getTodayWeather(query);
-    weatherState.data = data;
-    console.log(data);
-    uiStuff.displayInfo();
 
-    hideLoader();
-    
-    form.reset();
+    let data;
+    try {
+        data = await getTodayWeather(query);
+        weatherState.data = data;
+        console.log(data);
+        uiStuff.displayInfo();
+    } catch (e) {
+        return;
+    } finally {
+        hideLoader();
+        form.reset();
+    }
 }
 
 function displayLoader() {
@@ -31,14 +37,16 @@ function hideLoader() {
     loader.style.display = "none";
     searchBtn.style.display = "block";
 }
+function hideErrorMsg() {
+    const element = document.querySelector("form .error-msg");
+    element.style.display = "none";
+}
 
 export function listenForSearch() {
     form.addEventListener("submit", querySearch);
 
     const searchBtn = form.querySelector("span.search");
-    searchBtn.addEventListener("click", (e) => {
-        querySearch(e);
-    });
+    searchBtn.addEventListener("click", querySearch);
 }
 
 export function listenForInputClear() {
