@@ -37,9 +37,10 @@ body {
 header {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: 0.5rem;
 
-    span {
+    span.logo {
+        font-size: 2.2rem;
     }
 }
 
