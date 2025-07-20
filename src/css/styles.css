@@ -9,6 +9,14 @@
     --gray-200: #bfbfd4;
     --gray-100: #fafafa;
     --blue-light: #8fb2f5;
+    --blue-sky: #0481a8;
+
+    --bordRadius: 8px;
+}
+
+html {
+    display: flex;
+    justify-content: center;
 }
 
 body {
@@ -16,7 +24,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: 1rem; */
+    gap: 1rem;
+    padding: 1.5rem;
+    width: 600px;
 
     font-family: "Inter", sans-serif;
 
@@ -24,38 +34,111 @@ body {
     color: var(--gray-100);
 }
 
-input#search {
-    padding: 0 20px;
-    color: var(--gray-300);
-    background-color: var(--gray-500);
-    width: 100%;
-    line-height: 3rem;
-    border-style: none;
-    border-radius: 8px;
+form {
+    position: relative;
+    --icon-padding: 8px;
+    margin-bottom: 12px;
+
+    input#search {
+        color: var(--gray-300) !important;
+        padding: 0 calc(20px + 2 * var(--icon-padding));
+        background-color: var(--gray-500);
+        width: 100%;
+        line-height: 3rem;
+        border-style: none;
+        border-radius: var(--bordRadius);
+
+        &:focus {
+            outline-color: var(--gray-100);
+            outline-style: solid;
+            outline-width: 2px;
+        }
+    }
+
+    span {
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray-200);
+    }
+
+    span.search {
+        position: absolute;
+        left: var(--icon-padding);
+    }
+
+    span.clear {
+        position: absolute;
+        right: var(--icon-padding);
+        font-size: 1.6rem;
+    }
+
+    span:hover {
+        cursor: pointer;
+    }
+
+}
+
+div.loader {
+    position: absolute;
+    --size: 3px;
+    left: var(--icon-padding);
+    top: 25%;
+
+    border: var(--size) solid var(--gray-100);
+    border-top: var(--size) solid var(--blue-light);
+    border-radius: 50%;
+    width: calc(7.5 * var(--size));
+    height: calc(7.5 * var(--size));
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 main {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    min-width: 500px;
+    width: max(500px, 100%);
+    height: 500px;
 
     background-color: var(--gray-900);
 
     > * {
         background-color: var(--gray-800);
-        border-radius: 8px;
+        border-radius: var(--bordRadius);
     }
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.7rem;
+    width: 100%;
 }
 
 section.main-info-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 300px;
+    /* min-height: 300px; */
+    height: 350px;
     padding: 20px;
+    position: relative;
 
-    background-color: rgb(70, 190, 213);
+    border-radius: var(--bordRadius);
+
+    background-color: var(--blue-sky);
 
     div.top {
         display: grid;
@@ -67,14 +150,17 @@ section.main-info-card {
         }
         time.time {
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
         }
         time.date {
-            color: var(--gray-200)
+            color: var(--gray-200);
         }
     }
 
     div.bottom {
+        position: relative;
+        z-index: 2;
+
         p.current-weather {
             font-size: 3rem;
             font-weight: bold;
@@ -90,31 +176,51 @@ section.main-info-card {
 
         p.description {
             font-size: 0.8rem;
-            color: var(--gray-200)
+            color: var(--gray-200);
+            max-width: 60%;
         }
+    }
+
+    img.weather-icon {
+        position: absolute;
+        transform: scale(100%);
+        right: 1rem;
+        bottom: 0.5rem;
+        z-index: 1;
     }
 }
 
 section.extra-weather-info {
     width: 100%;
-    /* --spacing: 1r */
-    padding: 0 1rem;
+    padding: 0.5rem 1.5rem;
 
     ul {
         display: grid;
         grid-template-rows: repeat(1fr, 5);
         line-height: 3rem;
         font-size: 1.1rem;
+        letter-spacing: 0.4px;
         color: var(--gray-200);
         background-color: var(--gray-400);
-    
+
         li.info {
             display: flex;
             background-color: var(--gray-800);
             justify-content: space-between;
 
+            div {
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+
+                span {
+                    color: var(--gray-500);
+                    font-variation-settings: "wght" 300;
+                }
+            }
+
             p.list-value {
-                color: var(--gray-100)
+                color: var(--gray-100);
             }
         }
 

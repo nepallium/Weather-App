@@ -1,81 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-  </head>
-  <body>
-    <header>
-      <span></span>
-      <h1>Weather App</h1>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
 
-    <!-- <div class="container"> -->
-    <main>
-      <form class="search">
-        <label class="search">
-          <span></span>
-          <input id="search" name="search" placeholder="Search location" />
-        </label>
-      </form>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100..700,0,0&icon_names=air,close_small,device_thermostat,humidity_percentage,rainy,search,wb_sunny"
+        />
+    </head>
+    <body>
+        <header>
+            <span></span>
+            <h1>Weather App</h1>
+        </header>
 
-      <section class="main-info-card" style="display: none">
-        <div class="top">
-          <p class="location"></p>
-          <time class="time"></time>
-          <time class="date"></time>
-        </div>
-        <div class="bottom">
-          <p class="current-weather"></p>
-          <div>
-            <p class="feels-like"></p>
-            <p class="conditions"></p>
-          </div>
-          <p class="description"></p>
-        </div>
-      </section>
+        <main>
+            <form class="search">
+                <span class="material-symbols-outlined search">search</span>
+                <input
+                    id="search"
+                    name="search"
+                    placeholder="Search location"
+                />
+                <span class="material-symbols-outlined clear">close_small</span>
+                <div class="loader" style="display: none"></div>
+            </form>
 
-      <section class="extra-weather-info" style="display: none">
-        <ul>
-          <li class="info feels-like">
-            <div>
-              <span></span>
-              <p class="list-info">Feels Like</p>
+            <div class="container" style="display: none">
+                <section class="main-info-card">
+                    <div class="top">
+                        <p class="location"></p>
+                        <time class="time"></time>
+                        <time class="date"></time>
+                    </div>
+                    <div class="bottom">
+                        <p class="current-weather"></p>
+                        <div>
+                            <p class="feels-like"></p>
+                            <span>●</span>
+                            <p class="conditions"></p>
+                        </div>
+                        <p class="description"></p>
+                    </div>
+                    <img class="weather-icon" />
+                </section>
             </div>
-            <p class="list-value"></p>
-          </li>
-          <li class="info rain-prob">
-            <div>
-              <span></span>
-              <p class="list-info">Rain Probability</p>
-            </div>
-            <p class="list-value"></p>
-          </li>
-          <li class="info wind-speed">
-            <div>
-              <span></span>
-              <p class="list-info">Wind Speed</p>
-            </div>
-            <p class="list-value"></p>
-          </li>
-          <li class="info air-hum">
-            <div>
-              <span></span>
-              <p class="list-info">Air Humidity</p>
-            </div>
-            <p class="list-value"></p>
-          </li>
-          <li class="info uv-index">
-            <div>
-              <span></span>
-              <p class="list-info">UV Index</p>
-            </div>
-            <p class="list-value"></p>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <!-- </div> -->
-  </body>
+
+            <section class="extra-weather-info" style="display: none">
+                <ul>
+                    <li class="info min-max-temp">
+                        <div>
+                            <span class="material-symbols-outlined">
+                                device_thermostat
+                            </span>
+                            <p class="list-info">Min / Max</p>
+                        </div>
+                        <p class="list-value"></p>
+                    </li>
+                    <li class="info rain-prob">
+                        <div>
+                            <span class="material-symbols-outlined">
+                                rainy
+                            </span>
+                            <p class="list-info">Rain Probability</p>
+                        </div>
+                        <p class="list-value"></p>
+                    </li>
+                    <li class="info wind-speed">
+                        <div>
+                            <span class="material-symbols-outlined"> air </span>
+                            <p class="list-info">Wind Speed</p>
+                        </div>
+                        <p class="list-value"></p>
+                    </li>
+                    <li class="info air-hum">
+                        <div>
+                            <span class="material-symbols-outlined">
+                                humidity_percentage
+                            </span>
+                            <p class="list-info">Air Humidity</p>
+                        </div>
+                        <p class="list-value"></p>
+                    </li>
+                    <li class="info uv-index">
+                        <div>
+                            <span class="material-symbols-outlined">
+                                wb_sunny
+                            </span>
+                            <p class="list-info">UV Index</p>
+                        </div>
+                        <p class="list-value"></p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <!-- </div> -->
+    </body>
 </html>

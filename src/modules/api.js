@@ -25,7 +25,7 @@ export async function getWeather(location) {
 export async function getTodayWeather(location) {
   const weatherData = await getWeather(location);
 
-  const { alerts, description, resolvedAddress, currentConditions } = weatherData;
+  const { days, alerts, description, resolvedAddress, currentConditions } = weatherData;
   // const processedDays = days.map((day) => {
   //   const { hours, ...dayData } = day;
   //   return dayData;
@@ -35,6 +35,8 @@ export async function getTodayWeather(location) {
     alerts,
     description,
     resolvedAddress,
-    currentConditions
+    currentConditions,
+    tempmin: days[0].tempmin,
+    tempmax: days[0].tempmax,
   };
 }
