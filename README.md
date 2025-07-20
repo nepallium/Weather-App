@@ -1,6 +1,6 @@
 # Weather App
 
-**Try it [here](https://nepallium.github.io/odin-weather-app/)!**
+**Try it [here](https://nepallium.github.io/Weather-App/)!**
 
 A simple weather app built using HTML, CSS, and Javascript as a project for *The Odin Project* curriculum. Fetches the current day's conditions and displays an error if a location cannot be found.
 
